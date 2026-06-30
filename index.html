@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -7,46 +7,70 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="wrap">
-<img src="images/logo.jpeg" class="logo" alt="Red Beard Technology">
+<img class="logo" src="images/logo.jpeg" alt="Logo">
 <div class="terminal">
-<div class="titlebar">
-<span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
-<span class="title">root@redbeard:~</span>
+<div class="bar"><span class="r"></span><span class="y"></span><span class="g"></span>root@redbeard:~</div>
+<pre id="term"></pre>
 </div>
-<pre class="content">$ ssh redbeard.tech
-
-██████╗ ███████╗██████╗
-██╔══██╗██╔════╝██╔══██╗
-██████╔╝█████╗  ██║  ██║
-██╔══██╗██╔══╝  ██║  ██║
-██║  ██║███████╗██████╔╝
-╚═╝  ╚═╝╚══════╝╚═════╝
-
-Red Beard Technology
-====================
-
-&gt; Reliable IT Support for Small Businesses
-
-Services:
- ✔ Windows Workstations
- ✔ Microsoft 365
- ✔ Networking & Wi-Fi
- ✔ NAS & Server Administration
- ✔ Backup & Disaster Recovery
- ✔ Remote & On-Site Support
-
-Website deployment status...
-[████████████░░░░░░░] 60%
-
-Currently under construction.
-
-Contact:
-your@email.com
-(555) 555-5555
-
-$ <span class="cursor">█</span></pre>
-</div>
-<p class="footer">© 2026 Red Beard Technology</p>
-</div>
+<script>
+const lines=[
+"$ ssh redbeard.tech",
+"",
+"Connecting...",
+"Authenticating with public key...",
+"Access granted.",
+"",
+"██████╗ ███████╗██████╗ ",
+"██╔══██╗██╔════╝██╔══██╗",
+"██████╔╝█████╗  ██║  ██║",
+"██╔══██╗██╔══╝  ██║  ██║",
+"██║  ██║███████╗██████╔╝",
+"╚═╝  ╚═╝╚══════╝╚═════╝ ",
+"",
+"Red Beard Technology",
+"====================",
+"",
+"> Reliable IT Support for Small Businesses",
+"",
+"Services:",
+" ✔ Windows Workstations",
+" ✔ Microsoft 365",
+" ✔ Networking & Wi-Fi",
+" ✔ NAS & Server Administration",
+" ✔ Backup & Disaster Recovery",
+" ✔ Remote & On-Site Support",
+"",
+"Website deployment: 60%",
+"",
+"Currently under construction.",
+"",
+"Contact:",
+"your@email.com",
+"(555) 555-5555",
+"",
+"root@redbeard:~$ █"
+];
+const el=document.getElementById("term");
+let i=0;
+function typeLine(){
+ if(i>=lines.length){cycle();return;}
+ el.textContent+=lines[i++]+"\n";
+ window.scrollTo(0,document.body.scrollHeight);
+ setTimeout(typeLine,120);
+}
+const cmds=[
+"systemctl status support.service\n● support.service\n   Active: active (running)",
+"uptime\n365 days, 17 hours, load average: 0.04",
+"tail tickets.log\n✓ Printer fixed\n✓ VPN restored\n✓ Backup verified\n✓ Microsoft 365 migrated",
+"docker ps\n23 containers running"
+];
+let c=0;
+function cycle(){
+ setInterval(()=>{
+   el.textContent+="\nroot@redbeard:~$ "+cmds[c%cmds.length]+"\n";
+   c++;
+ },5000);
+}
+typeLine();
+</script>
 </body></html>

@@ -1,12 +1,7 @@
-body{margin:0;background:#0b0b0b;color:#ddd;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;display:flex;align-items:center;justify-content:center;min-height:100vh}
-.wrap{max-width:900px;padding:30px}
-.logo{display:block;width:180px;margin:0 auto 20px}
-.terminal{background:#111;border:1px solid #444;border-radius:10px;overflow:hidden;box-shadow:0 0 25px rgba(180,0,0,.25)}
-.titlebar{background:#202020;padding:10px}
-.dot{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:6px}
-.red{background:#ff5f56}.yellow{background:#ffbd2e}.green{background:#27c93f}
-.title{margin-left:10px;color:#aaa}
-.content{margin:0;padding:22px;white-space:pre-wrap;line-height:1.45}
-.cursor{animation:blink 1s steps(1) infinite;color:#d33}
-.footer{text-align:center;color:#666;margin-top:18px}
-@keyframes blink{50%{opacity:0}}
+body{margin:0;background:#090909;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;display:flex;flex-direction:column;align-items:center;padding:40px}
+.logo{width:180px;margin-bottom:20px}
+.terminal{width:min(900px,95vw);background:#0d0d0d;border:1px solid #6b1111;border-radius:10px;overflow:hidden;box-shadow:0 0 30px rgba(180,0,0,.35)}
+.bar{background:#1a1a1a;color:#aaa;padding:10px;font-size:14px}
+.r,.y,.g{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:6px}
+.r{background:#ff5f56}.y{background:#ffbd2e}.g{background:#27c93f}
+pre{margin:0;padding:22px;color:#d83a3a;text-shadow:0 0 6px rgba(216,58,58,.35);font-size:16px;line-height:1.45;white-space:pre-wrap;min-height:650px}
